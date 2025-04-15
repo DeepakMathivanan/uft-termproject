@@ -7,26 +7,36 @@
   <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
-  <h1>Customer Segmentation with various clustering Alogorithms</h1>
-  <p>This project focuses on understanding customer behavior by grouping them based on their shopping patterns. It analyzes how 
-     often customers buy, how recently they made a purchase, how much they typically spend, and how often they return items. By 
-     studying these patterns, we can identify different types of customers, such as regular buyers, high spenders, or those who 
-     may be at risk of not returning.This helps the business tailor its marketing, improve customer service, and make more informed 
-     decisions to boost customer satisfaction and sales. </p>
-  <div class="tile-container">
-    <a href="kmeans.html" class="tile">
-      <h2>Using K-Means</h2>
-      <p>We prepared customer data by generating features like Recency, Frequency, Monetary, and others. After scaling the data and 
-         using the K-distance graph to find optimal eps and min_samples, we applied DBSCAN to identify natural customer groupings. 
-         This method helped detect outliers and clusters without predefining the number of segments. PCA was used for 2D visualization 
-         of the clusters.</p>
-    </a>
-    <a href="dbscan.html" class="tile">
-      <h2>Using DBSCAN</h2>
-      <p>For KMeans, we used the same preprocessed and scaled data. We applied the Elbow method to determine the optimal number of 
-         clusters (K), then used KMeans to classify customers into distinct groups. Each group was analyzed and labeled based on 
-         behavioral traits like high spending or frequent purchases, helping us create meaningful customer segments.</p>
-    </a>
+  <div class="sidebar">
+    <img src="assets/logo.png" alt="Logo" style="width:100%; border-radius: 10px;" />
+  </div>
+
+  <div class="main-content">
+    <div class="banner">
+      <h1>Customer Segmentation with Various Clustering Algorithms</h1>
+    </div>
+
+    <p>This project focuses on understanding customer behavior by grouping them based on their shopping patterns. It analyzes how 
+       often customers buy, how recently they made a purchase, how much they typically spend, and how often they return items. By 
+       studying these patterns, we can identify different types of customers, such as regular buyers, high spenders, or those who 
+       may be at risk of not returning. This helps the business tailor its marketing, improve customer service, and make more informed 
+       decisions to boost customer satisfaction and sales.</p>
+
+    <div class="tile-container">
+      <a href="kmeans.html" class="tile">
+        <h2>Using K-Means</h2>
+        <p>We prepared customer data by generating features like Recency, Frequency, Monetary, and others. After scaling the data and 
+           using the K-distance graph to find optimal eps and min_samples, we applied DBSCAN to identify natural customer groupings. 
+           This method helped detect outliers and clusters without predefining the number of segments. PCA was used for 2D visualization 
+           of the clusters.</p>
+      </a>
+      <a href="dbscan.html" class="tile">
+        <h2>Using DBSCAN</h2>
+        <p>For KMeans, we used the same preprocessed and scaled data. We applied the Elbow method to determine the optimal number of 
+           clusters (K), then used KMeans to classify customers into distinct groups. Each group was analyzed and labeled based on 
+           behavioral traits like high spending or frequent purchases, helping us create meaningful customer segments.</p>
+      </a>
+    </div>
   </div>
 </body>
 </html>
