@@ -15,12 +15,17 @@
      decisions to boost customer satisfaction and sales. </p>
   <div class="tile-container">
     <a href="kmeans.html" class="tile">
-      <h2>Customer Segmentation using K-Means</h2>
-      <p>Classify customers using KMeans clustering</p>
+      <h2>Using K-Means</h2>
+      <p>We prepared customer data by generating features like Recency, Frequency, Monetary, and others. After scaling the data and 
+         using the K-distance graph to find optimal eps and min_samples, we applied DBSCAN to identify natural customer groupings. 
+         This method helped detect outliers and clusters without predefining the number of segments. PCA was used for 2D visualization 
+         of the clusters.</p>
     </a>
     <a href="dbscan.html" class="tile">
-      <h2>Customer Segmentation using DBSCAN</h2>
-      <p>Predict future sales using time series models</p>
+      <h2>Using DBSCAN</h2>
+      <p>For KMeans, we used the same preprocessed and scaled data. We applied the Elbow method to determine the optimal number of 
+         clusters (K), then used KMeans to classify customers into distinct groups. Each group was analyzed and labeled based on 
+         behavioral traits like high spending or frequent purchases, helping us create meaningful customer segments.</p>
     </a>
   </div>
 </body>
