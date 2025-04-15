@@ -44,3 +44,29 @@ body {
   transform: scale(1.02);
   background-color: #f0f8ff;
 }
+
+/* Code block styling */
+pre {
+  background-color: #f4f4f4;
+  padding: 10px;
+  overflow-x: auto;
+  border-radius: 5px;
+}
+
+/* Table styling inside tile */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+}
+
+th, td {
+  text-align: left;
+  padding: 8px;
+  border-bottom: 1px solid #ddd;
+}
+
+th {
+  background-color: #f0f0f0;
+}
+
