@@ -3,22 +3,63 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Customer Segmentation</title>
+  <title>KMeans Clustering</title>
   <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
-  <a href="index.html">← Back to Home</a>
-  <h1>Customer Segmentation</h1>
-  <p>This project clusters customers using KMeans...</p>
+  <div class="container">
+    <h1>KMeans Clustering</h1>
+    <p>This section breaks down how KMeans was applied to customer segmentation. Below you'll find tiles for code snippets, charts, and tabular data.</p>
 
-  <h2>Code</h2>
-  <pre><code>
-from sklearn.cluster import KMeans
-kmeans = KMeans(n_clusters=3)
-kmeans.fit(data)
-  </code></pre>
+    <div class="tile-container">
+      <!-- Tile 1: Code Snippet -->
+      <div class="tile">
+        <h2>Code for Preprocessing</h2>
+        <pre><code>
+# Select and scale features
+from sklearn.preprocessing import StandardScaler
 
-  <h2>Result</h2>
-  <img src="assets/charts/proj1_chart.png" alt="Cluster Chart" />
+features = ['Recency', 'Frequency', 'Monetary']
+scaler = StandardScaler()
+X_scaled = scaler.fit_transform(df[features])
+        </code></pre>
+      </div>
+
+      <!-- Tile 2: Chart (Image of Chart) -->
+      <div class="tile">
+        <h2>Elbow Method Chart</h2>
+        <img src="assets/elbow_chart.png" alt="Elbow Method" style="width:100%; border-radius: 10px;" />
+      </div>
+
+      <!-- Tile 3: Cluster Table -->
+      <div class="tile">
+        <h2>Cluster Summary Table</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>Cluster</th>
+              <th>Avg Recency</th>
+              <th>Avg Frequency</th>
+              <th>Avg Monetary</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>0</td>
+              <td>12</td>
+              <td>8</td>
+              <td>$450</td>
+            </tr>
+            <tr>
+              <td>1</td>
+              <td>45</td>
+              <td>2</td>
+              <td>$120</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
 </body>
 </html>
