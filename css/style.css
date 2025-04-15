@@ -1,55 +1,46 @@
-/* Global page styling */
+/* Overall page layout */
 body {
   font-family: Arial, sans-serif;
   margin: 0;
   padding: 0;
+  background-color: #fefefe;
   display: flex;
+  justify-content: center;
 }
 
-/* Left sidebar (optional image area) */
-.sidebar {
-  width: 200px;
-  background-color: #f5f5f5;
-  padding: 20px;
-  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+.container {
+  width: 80%;
+  margin: 5% auto; /* 10% total: 5% top & bottom */
 }
 
-/* Main content area */
-.main-content {
-  flex-grow: 1;
-  padding: 20px;
-}
-
-/* Banner/Header */
-.banner {
-  background-color: #003366; /* dark blue */
-  color: white;
-  padding: 20px;
-  text-align: center;
+/* Banner image as header */
+.banner-image {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  object-fit: cover;
   margin-bottom: 20px;
-  border-radius: 0 0 10px 10px;
 }
 
 /* Tile styles */
 .tile-container {
   display: flex;
-  gap: 1rem;
-  flex-wrap: wrap;
+  flex-direction: column;
+  gap: 20px;
 }
 
 .tile {
+  background-color: #ffffff;
   border: 1px solid #ccc;
   border-radius: 10px;
   padding: 1rem;
   text-decoration: none;
   color: black;
-  width: 45%;
   box-shadow: 0 2px 5px rgba(0,0,0,0.1);
   transition: transform 0.2s;
-  background-color: #ffffff;
 }
 
 .tile:hover {
-  transform: scale(1.03);
+  transform: scale(1.02);
   background-color: #f0f8ff;
 }
