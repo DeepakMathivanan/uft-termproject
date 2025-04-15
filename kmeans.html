@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Customer Segmentation</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <a href="index.html">← Back to Home</a>
+  <h1>Customer Segmentation</h1>
+  <p>This project clusters customers using KMeans...</p>
+
+  <h2>Code</h2>
+  <pre><code>
+from sklearn.cluster import KMeans
+kmeans = KMeans(n_clusters=3)
+kmeans.fit(data)
+  </code></pre>
+
+  <h2>Result</h2>
+  <img src="assets/charts/proj1_chart.png" alt="Cluster Chart" />
+</body>
+</html>
