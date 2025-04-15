@@ -1,32 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>ML Projects</title>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
-  <h1>My Machine Learning Projects</h1>
-
-  <div class="project-tile" onclick="showDetails()">
-    <h2>Customer Segmentation</h2>
-    <p>A project to cluster customers based on their spending behavior.</p>
+  <h1>Machine Learning Projects</h1>
+  <div class="tile-container">
+    <a href="project1.html" class="tile">
+      <h2>Customer Segmentation</h2>
+      <p>Classify customers using KMeans clustering</p>
+    </a>
+    <a href="project2.html" class="tile">
+      <h2>Sales Forecasting</h2>
+      <p>Predict future sales using time series models</p>
+    </a>
   </div>
-
-  <div id="details" class="project-details">
-    <h3>Code Snippet</h3>
-    <pre><code>
-from sklearn.cluster import KMeans
-kmeans = KMeans(n_clusters=3)
-kmeans.fit(X)
-    </code></pre>
-
-    <h3>Chart</h3>
-    <img src="assets/chart.png" alt="Chart Output">
-
-    <button onclick="hideDetails()">Close</button>
-  </div>
-
-  <script src="script.js"></script>
 </body>
 </html>
