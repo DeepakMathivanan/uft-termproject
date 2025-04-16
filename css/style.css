@@ -63,6 +63,38 @@ body {
   object-fit: contain;    /* or use "cover" for cropping */
 }
 
+.tile.horizontal-tile {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 20px;
+  padding: 20px;
+  margin: 30px auto;
+  max-width: 90%;
+  background-color: #ffffff;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.tile-image-left {
+  height: 40vh;
+  width: auto;
+  border-radius: 8px;
+  object-fit: contain;
+}
+
+.tile-content {
+  flex: 1;
+}
+
+.tile-content pre {
+  background: #f4f4f4;
+  padding: 10px;
+  overflow-x: auto;
+  border-radius: 5px;
+}
+
 /* Code block styling */
 pre {
   background-color: #f4f4f4;
@@ -97,4 +129,19 @@ th {
   border-radius: 5px;
   font-size: 16px;
   line-height: 1.6;
+}
+@media (max-width: 768px) {
+  .tile.horizontal-tile {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .tile-image-left {
+    width: 100%;
+    height: auto;
+  }
+
+  .tile-content {
+    width: 100%;
+  }
 }
