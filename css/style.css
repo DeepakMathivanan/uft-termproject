@@ -45,6 +45,13 @@ body {
   background-color: #f0f8ff;
 }
 
+.tile img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+  object-fit: contain;
+}
 /* Code block styling */
 pre {
   background-color: #f4f4f4;
