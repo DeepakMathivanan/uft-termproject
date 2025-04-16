@@ -17,17 +17,30 @@
         </a>
     </p>
     <div class="tile-container">
+      <!-- Data Source -->
+        <div class="explanation">
+          <p>
+            <strong> Data Source </strong>The dataset containing online retail transactions from 2009 to 2011. It includes customer purchases, product details, invoice dates, quantities, and pricing information.
+          </p>
+        </div>
+      
       <!-- Image Tile 1 -->
       <div  class="tile horizontal-tile">
         <h2>Glimpse of data</h2>
         <img src="assets/glimpse-of-data.png" alt="glimpse of data" class="tile-image-left" />
       </div>
 
-       <!-- Explanatory text between tiles -->
+       <!-- Data Cleaning -->
         <div class="explanation">
           <p>
-            Before applying KMeans, it's essential to standardize the data. KMeans relies on distance between points,
-            so features with larger values could dominate the clustering process if not scaled.
+            <strong> Data Cleaning </strong> We cleaned the data by removing missing entries, dropping invalid records like negative quantities, and ensuring proper data types for dates and numerical columns. This helped maintain data integrity for accurate analysis.
+          </p>
+        </div>
+      
+      <!-- Data Preprocessing -->
+        <div class="explanation">
+          <p>
+            <strong> Data Preprocessing </strong> We engineered new features like Total sales, Hour, DayOfWeek, Month and Year are created from existing columns. We also created an RFM (Recency, Frequency, Monetary) table and applied scaling to prepare the data for clustering models like KMeans and DBSCAN.
           </p>
         </div>
       
