@@ -52,6 +52,17 @@ body {
   margin: 0 auto;
   object-fit: contain;
 }
+
+.tile img.tile-image {
+  height: 40vh;           /* 40% of the viewport height */
+  width: auto;
+  max-width: 100%;
+  display: block;
+  margin: 10px auto;
+  border-radius: 8px;
+  object-fit: contain;    /* or use "cover" for cropping */
+}
+
 /* Code block styling */
 pre {
   background-color: #f4f4f4;
