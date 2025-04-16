@@ -65,6 +65,9 @@
       <!-- Image Tile 5 -->
       <div  class="tile">
         <h2>RFM Score</h2>
+        <div class="tile-content"> 
+        <p> The purpose of the RFM score is to segment customers based on their Recency (how recently they purchased), Frequency (how often they purchase), and Monetary (how much they spend). It helps businesses identify and prioritize key customer groups like loyal buyers, at-risk customers, or high spenders for targeted marketing and engagement strategies.</p>
+        </div>
         <pre><code> 
           from matplotlib import pyplot as plt
           top_10_scores['RFM_Score'].plot(kind='line', figsize=(8, 4), title='RFM_Score')
@@ -76,6 +79,9 @@
       <!-- Image Tile 6 -->
       <div  class="tile">
         <h2>Elbow Method</h2>
+        <div class="tile-content">
+          <p> The elbow method helps determine the optimal number of clusters (K) in KMeans clustering. It does this by plotting the within-cluster sum of squares (WCSS) against the number of clusters, and identifying the "elbow point" where adding more clusters gives diminishing returns in reducing WCSS.</p>
+        </div>
          <pre><code> 
           #Feature Engineering - Add Total Sales column and convert
           data['Total Sales'] = data['Quantity'] * data['UnitPrice']
