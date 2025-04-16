@@ -62,16 +62,12 @@
         <img src="assets/salesmetrics-country.png" alt="Sales metrics by country" class="tile-image" />
       </div>
 
-       <!-- RFM Score -->
-        <div class="explanation">
-          <p>
-           The purpose of the <strong>RFM score</strong> is to segment customers based on their Recency (how recently they purchased), Frequency (how often they purchase), and Monetary (how much they spend). It helps businesses identify and prioritize key customer groups like loyal buyers, at-risk customers, or high spenders for targeted marketing and engagement strategies.
-          </p>
-        </div>
-
       <!-- Image Tile 5 -->
       <div  class="tile">
         <h2>RFM Score</h2>
+        <div class="tile-content">
+          <p> The purpose of the RFM score is to segment customers based on their Recency (how recently they purchased), Frequency (how often they purchase), and Monetary (how much they spend). It helps businesses identify and prioritize key customer groups like loyal buyers, at-risk customers, or high spenders for targeted marketing and engagement strategies.</p>
+        </div>
         <pre><code> 
           from matplotlib import pyplot as plt
           top_10_scores['RFM_Score'].plot(kind='line', figsize=(8, 4), title='RFM_Score')
