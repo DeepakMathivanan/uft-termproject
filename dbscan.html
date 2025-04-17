@@ -91,9 +91,9 @@
       <div  class="tile">
         <h2>Finalized Features</h2>
         <div class="tile-content">
-          <p> -> To avoid skewed data dropped Top Country</p>
-          <p> -> To avoid high correlation data with Monetary dropped AverageSpendPerPurchase</p>
-          <p> -> Dropped IsHighSpender due to binary value</p>
+          <p>1. To avoid skewed data dropped Top Country</p>
+          <p>2. To avoid high correlation data with Monetary dropped AverageSpendPerPurchase</p>
+          <p>3. Dropped IsHighSpender due to binary value</p>
         </div>
         <pre><code>
           features_to_scale = ['Recency', 'Frequency', 'Monetary', 'WeekendPurchaseRate', 'ReturnRate']
@@ -102,7 +102,7 @@
           rfm_standard_scaled = standard_scaler.fit_transform(rfm[features_to_scale])
         </code></pre>
          <div class="tile-content">
-            <p> -> Did Principal Component Analysis(PCA) on top Scaled(Standard Scaler) data dropped Return rate due to very less contribution</p>
+            <p>4. Did Principal Component Analysis(PCA) on top Scaled(Standard Scaler) data dropped Return rate due to very less contribution</p>
           </div>
         <pre><code> 
           # Apply PCA to reduce the dataset to 2 components
@@ -143,6 +143,40 @@
         <img src="assets/7-db-elbowmethod.png" alt="Sales metrics by country" class="tile-image" />
       </div>
 
+      <!-- Tile 1 -->
+      <div  class="tile">
+        <h2>Evaluate Silhouette Score</h2>
+        <pre><code>
+          eps_values = [0.5, 0.6, 0.7, 0.8, 0.9]
+          for eps in eps_values:
+              db = DBSCAN(eps=eps, min_samples=8)
+              labels = db.fit_predict(X_pca)
+          
+              n_clusters = len(set(labels)) - (1 if -1 in labels else 0)
+              if n_clusters > 1:
+                  score = silhouette_score(X_pca, labels)
+                  print(f"eps: {eps}, clusters: {n_clusters}, silhouette: {score:.2f}")
+              else:
+                  print(f"eps: {eps}, too few clusters")
+        </code></pre>
+        <pre><code>
+          eps: 0.5, clusters: 2, silhouette: 0.62
+          eps: 0.6, clusters: 2, silhouette: 0.50
+          eps: 0.7, clusters: 2, silhouette: 0.71
+          eps: 0.8, clusters: 2, silhouette: 0.75
+          eps: 0.9, clusters: 2, silhouette: 0.75
+        </code></pre>
+      </div>
+
+      <!-- Image Tile 8 -->
+      <div  class="tile">
+        <h2>DBScan clusters</h2>
+        <pre><code>
+          dbscan = DBSCAN(eps=0.8, min_samples=8)
+          rfm['DBSCAN_Cluster'] = dbscan.fit_predict(X_pca)
+        </code></pre>
+        <img src="assets/5-db-InitialFeatureSelection.png" alt="Null check" class="tile-image" />
+      </div>
       
     </div>
   </div>
