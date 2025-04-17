@@ -58,6 +58,7 @@
 
       <!-- Image Tile 4 -->
       <div  class="tile">
+        <h2>Top 10 customers(Removed Outliers)</h2>
         <div class="tile-content">
           <p> Removed outlier using IQR(Interquartile range). It is a measure of statistical dispersion, describing the spread of the middle 50% of a dataset. It's calculated as the difference between the third quartile(Q3) which is the upper bound and the first quartile(Q1) which is the lower bound of the data. Data points that fall outside these bounds (either above the upper bound or below the lower bound) are considered potential outliers.</p>
         </div>
@@ -77,15 +78,43 @@
           # Step 3: Filter out customers with extreme total spend
           customer_spending_clean = customer_spending[(customer_spending >= lower_bound) & (customer_spending <= upper_bound)]
         </code></pre>
-        <h2>Top 10 customers(Removed Outliers)</h2>
         <img src="assets/3-db-top10customers-removedoutliers.png" alt="Top 10 customers with removed outliers" class="tile-image" />
       </div>
 
        <!-- Image Tile 5 -->
       <div  class="tile">
-        <h2>Null Check</h2>
+        <h2>Initial Feature Selection</h2>
         <img src="assets/4-db-nullchecking-removedoutliers.png" alt="Null check" class="tile-image" />
       </div>
+
+      <!-- Image Tile 6 -->
+      <div  class="tile">
+        <h2>Finalized Features</h2>
+        <div class="tile-content">
+          <p> -> To avoid skewed data dropped Top Country</p>
+          <p> -> To avoid high correlation data with Monetary dropped AverageSpendPerPurchase</p>
+          <p> -> Did Principal Component Analysis(PCA) on top Scaled(Standard Scaler) data dropped Return rate due to very less contribution</p>
+          <p> -> Dropped IsHighSpender due to binary value</p>
+        </div>
+        <img src="assets/4-db-nullchecking-removedoutliers.png" alt="Null check" class="tile-image" />
+        <pre><code> 
+          # Apply PCA to reduce the dataset to 2 components
+            pca = PCA(n_components=4)
+            X_pca = pca.fit_transform(rfm_standard_scaled)
+            
+            # Variance explained by each principal component
+            print("Explained Variance Ratio:", pca.explained_variance_ratio_)
+            print("Total Variance Explained:", np.sum(pca.explained_variance_ratio_))
+        </code></pre>
+        <pre>
+          <code>
+            Explained Variance Ratio: [0.39302084 0.21309313 0.18738906 0.17496266]
+            Total Variance Explained: 0.9684656897010425
+          </code>
+        </pre>
+        <img src="assets/4-db-nullchecking-removedoutliers.png" alt="Null check" class="tile-image" />
+      </div>
+
       
       <!-- Image Tile 6 -->
       <div  class="tile">
