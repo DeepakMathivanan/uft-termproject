@@ -84,7 +84,7 @@
        <!-- Image Tile 5 -->
       <div  class="tile">
         <h2>Initial Feature Selection</h2>
-        <img src="assets/4-db-nullchecking-removedoutliers.png" alt="Null check" class="tile-image" />
+        <img src="assets/5-db-InitialFeatureSelection.png" alt="Null check" class="tile-image" />
       </div>
 
       <!-- Image Tile 6 -->
@@ -94,7 +94,6 @@
           <p> -> To avoid skewed data dropped Top Country</p>
           <p> -> To avoid high correlation data with Monetary dropped AverageSpendPerPurchase</p>
           <p> -> Dropped IsHighSpender due to binary value</p>
-         
         </div>
         <pre><code>
           features_to_scale = ['Recency', 'Frequency', 'Monetary', 'WeekendPurchaseRate', 'ReturnRate']
@@ -120,22 +119,28 @@
             Total Variance Explained: 0.9684656897010425
           </code>
         </pre>
-        <img src="assets/4-db-nullchecking-removedoutliers.png" alt="Null check" class="tile-image" />
+        <img src="assets/6-db-Pairwisescatterplot.png" alt="Null check" class="tile-image" />
       </div>
 
       
-      <!-- Image Tile 6 -->
+      <!-- Image Tile 7 -->
       <div  class="tile">
-        <h2>RFM Score</h2>
+        <h2>K Distance graph</h2>
         <div class="tile-content">
-          <p> The purpose of the RFM score is to segment customers based on their Recency (how recently they purchased), Frequency (how often they purchase), and Monetary (how much they spend). It helps businesses identify and prioritize key customer groups like loyal buyers, at-risk customers, or high spenders for targeted marketing and engagement strategies.</p>
+          <p>Plotted the K-distance graph using min_samples = 8—determined using a stricter heuristic of 2 × number of dimensions—to identify a suitable range of epsilon values for clustering.</p>
         </div>
         <pre><code> 
-          from matplotlib import pyplot as plt
-          top_10_scores['RFM_Score'].plot(kind='line', figsize=(8, 4), title='RFM_Score')
-          plt.gca().spines[['top', 'right']].set_visible(False)
+          # Choose your value of k (usually same as min_samples)
+            k = 4  # Common rule of thumb: min_samples = number of dimensions + 1
+            
+            # Fit NearestNeighbors on your PCA-transformed data
+            neigh = NearestNeighbors(n_neighbors=k)
+            nbrs = neigh.fit(X_pca)  # assuming X_pca is your PCA-transformed data
+            
+            # Find the k-distance for each point
+            distances, indices = nbrs.kneighbors(X_pca)
         </code></pre>
-        <img src="assets/rfmscore-linechart.png" alt="Sales metrics by country" class="tile-image" />
+        <img src="assets/7-db-elbowmethod.png" alt="Sales metrics by country" class="tile-image" />
       </div>
 
       
