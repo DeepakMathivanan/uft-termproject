@@ -46,23 +46,48 @@
 
     <!-- Image Tile 2 -->
       <div  class="tile">
-        <h2>Top 5 sold products</h2>
-        <img src="assets/top5-products.png" alt="Top 5 sold products" class="tile-image" />
+        <h2>Transaction by country</h2>
+        <img src="assets/1-db-transactionbycountry.png" alt="Transaction by country" class="tile-image" />
       </div>
 
        <!-- Image Tile 3 -->
       <div  class="tile">
-        <h2>Top 10 country with more customers</h2>
-        <img src="assets/top10-customer-country.png" alt="Top 10 country with more customers" class="tile-image" />
+        <h2>Top 10 customers</h2>
+        <img src="assets/2-db-top10customers.png" alt="Top 10 customers" class="tile-image" />
       </div>
 
       <!-- Image Tile 4 -->
       <div  class="tile">
-        <h2>Sales metrics by country</h2>
-        <img src="assets/salesmetrics-country.png" alt="Sales metrics by country" class="tile-image" />
+        <div class="tile-content">
+          <p> Removed outlier using IQR(Interquartile range). It is a measure of statistical dispersion, describing the spread of the middle 50% of a dataset. It's calculated as the difference between the third quartile(Q3) which is the upper bound and the first quartile(Q1) which is the lower bound of the data. Data points that fall outside these bounds (either above the upper bound or below the lower bound) are considered potential outliers.</p>
+        </div>
+        <pre><code> 
+          #Apply IQR After Aggregating by Customer
+          # Step 1: Aggregate total spending per customer
+          customer_spending = df_clean.groupby('Customer ID')['TotalPrice'].sum()
+          
+          # Step 2: Apply IQR to the aggregated totals
+          Q1 = customer_spending.quantile(0.25)
+          Q3 = customer_spending.quantile(0.75)
+          IQR = Q3 - Q1
+          
+          lower_bound = Q1 - 1.5 * IQR
+          upper_bound = Q3 + 1.5 * IQR
+          
+          # Step 3: Filter out customers with extreme total spend
+          customer_spending_clean = customer_spending[(customer_spending >= lower_bound) & (customer_spending <= upper_bound)]
+        </code></pre>
+        <h2>Top 10 customers(Removed Outliers)</h2>
+        <img src="assets/3-db-top10customers-removedoutliers.png" alt="Top 10 customers with removed outliers" class="tile-image" />
       </div>
 
-      <!-- Image Tile 5 -->
+       <!-- Image Tile 5 -->
+      <div  class="tile">
+        <h2>Null Check</h2>
+        <img src="assets/4-db-nullchecking-removedoutliers.png" alt="Null check" class="tile-image" />
+      </div>
+      
+      <!-- Image Tile 6 -->
       <div  class="tile">
         <h2>RFM Score</h2>
         <div class="tile-content">
